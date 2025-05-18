@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "fc7cdf10-e012-4519-8f55-3202a99761b9",
+		"name": "Oppem Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "459956"
+	},
+	"item": [
+		{
+			"name": "Mock Vate",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"obra_id\": \"OBRA-001\",\n    \"data\": \"2025-05-08\",\n    \"clima\": \"ensolaardo\",\n    \"descricao\": \"Fundação concluída\",\n    \"equipe\": [\"Carlos\", \"Marta\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"obra_id\": \"1OBRA-001\",\n    \"data\": \"2025-05-09\",\n    \"clima\": \"ensolardo\",\n    \"descricao\": \"1Fundação concluída\",\n    \"equipe\": [\"1Carlos\", \"Marta\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/reports/{{VATE_REPORT_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"reports",
+								"{{VATE_REPORT_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/reports/867c5920-cd03-4e7c-a2a3-ca109eb4544d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"reports",
+								"867c5920-cd03-4e7c-a2a3-ca109eb4544d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mock Argelor",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-simulate-error",
+								"value": "true",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site\": \"OBRA-001\",\n    \"reportDate\": \"21025-05-08\",\n    \"wheater\": \"ensolarado\",\n    \"summary\": \"Fundação concluída\",\n    \"workers\": [\"Carlos\", \"Marta\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/daily-reports",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"daily-reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site\": \"1OBRA-001\",\n    \"reportDate\": \"21025-05-08\",\n    \"wheater\": \"ensolarado\",\n    \"summary\": \"Fundação concluída\",\n    \"workers\": [\"Carlos\", \"Marta\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/daily-reports/{{ARGELOR_REPORT_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"daily-reports",
+								"{{ARGELOR_REPORT_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/daily-reports/{{ARGELOR_REPORT_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"daily-reports",
+								"{{ARGELOR_REPORT_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-simulate-error",
+								"value": "true",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"OBRA-001\",\n    \"date\": \"2025-05-08\",\n    \"weather\": \"ensolarado\",\n    \"description\": \"Fundação realizada\",\n    \"workers\": [\"Cristiano Ronald\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"<style type=\"text/css\">",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+									"    .tftable tr {background-color:#ffffff;}",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+									"    .tftable tr:hover {background-color:#e0ffff;}",
+									"</style>",
+									"",
+									"<table class=\"tftable\" border=\"1\">",
+									"    <tr>",
+									"        <th>Status</th>",
+									"        <th>Message</th>",
+									"        <th>Errors</th>",
+									"    </tr>",
+									"    <tr>",
+									"        <td>{{response.status}}</td>",
+									"        <td>{{response.message}}</td>",
+									"        <td>",
+									"            {{#each response.errors}}",
+									"                <p>{{path}} - {{message}}</p>",
+									"            {{/each}}",
+									"        </td>",
+									"    </tr>",
+									"</table>",
+									"`;",
+									"",
+									"function constructVisualizerPayload() {",
+									"    return {response: pm.response.json()}",
+									"}",
+									"",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"1OBRA-001\",\n    \"date\": \"2025-05-18\",\n    \"weather\": \"nublado\",\n    \"description\": \"1Fundação realizada\",\n    \"workers\": [\"1Cristiano Ronaldo\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/reports/{{API_REPORT_ID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reports",
+								"{{API_REPORT_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/daily-reports/867c5920-cd03-4e7c-a2a3-ca109eb4544d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"daily-reports",
+								"867c5920-cd03-4e7c-a2a3-ca109eb4544d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "API_REPORT_ID",
+			"value": "8fdbb623-44fa-4f40-9ad5-1ad197bdf80c",
+			"type": "default"
+		},
+		{
+			"key": "ARGELOR_REPORT_ID",
+			"value": "4d320ec1-4bcb-4455-9e89-3e838d8b0bea",
+			"type": "default"
+		},
+		{
+			"key": "VATE_REPORT_ID",
+			"value": "49985993-e92d-4ce8-ba4e-574bd3835278",
+			"type": "default"
+		}
+	]
+}

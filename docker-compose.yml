@@ -1,0 +1,52 @@
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - NODE_ENV=development
+      - VATE_URL=http://vate-mock:3001
+      - ARGELOR_URL=http://argelor-mock:3002
+    depends_on:
+      - vate-mock
+      - argelor-mock
+    networks:
+      - obra-network
+
+  test:
+    build: .
+    volumes:
+      - .:/app # Mount the entire project directory
+    environment:
+      - NODE_ENV=test
+      - VATE_URL=http://vate-mock:3001
+      - ARGELOR_URL=http://argelor-mock:3002
+    depends_on:
+      - vate-mock
+      - argelor-mock
+    networks:
+      - obra-network
+
+  vate-mock:
+    build:
+      context: .
+      dockerfile: mocks/vate.Dockerfile
+    ports:
+      - "3001:3001"
+    networks:
+      - obra-network
+
+  argelor-mock:
+    build:
+      context: .
+      dockerfile: mocks/argelor.Dockerfile
+    ports:
+      - "3002:3002"
+    networks:
+      - obra-network
+
+networks:
+  obra-network:
+    driver: bridge
